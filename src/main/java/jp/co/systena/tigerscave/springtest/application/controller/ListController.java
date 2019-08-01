@@ -21,6 +21,7 @@ public class ListController {
     model.addAttribute("itemid", itemid);
     model.addAttribute("name", name);
     model.addAttribute("price", price);
+
     return "ListView";
   }
 }

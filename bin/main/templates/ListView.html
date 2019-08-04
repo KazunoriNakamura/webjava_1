@@ -3,12 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>InputPanel</title>
-<link rel="STYLESHEET" href="todo.css"
-      type="text/css">
+<style>
+tr {margin:5px;}
+th {padding:5px;color:white;background:darkgrey;}
+td {padding:5px;color:black;background:#f0f0f0;}
+</style>
 </head>
 <body>
 <h1>入力画面</h1>
-<form action="ListForm" method="post">
+<form method="Post" action="/Order" th:object="${ListController}">
 <div class="item">
 <p>商品ID：<br>
 <h1 th:text="${itemid}"></h1>
@@ -28,10 +31,22 @@
 <label for="rendou">個数：</label><input type="number" name="num" size="5" value=1>
 </div>
 
+<div class="item">
+<input type="hidden" name="price" th:value="${price}" />
+<input type="hidden" name="itemid" th:value="${itemid}" />
+<input type="hidden" name="name" th:value="${name}" />
+</div>
+
 <br>
 <div class="item">
-<button type="submit" name="name" value="value">カートに入れる</button>
+<button type="submit" name="name" value="value">カートに追加</button>
 </div>
 </form>
+<table>
+<tr><th>商品名</th><th>個数</th><th>合計金額</th></tr>
+<h1 th:text="${orderitem}"></h1>
+<h1 th:text="${ordernum}"></h1>
+<h1 th:text="${amount}"></h1>
+</table>
 </body>
 </html>

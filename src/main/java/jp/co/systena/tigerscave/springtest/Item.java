@@ -1,28 +1,27 @@
 package jp.co.systena.tigerscave.springtest;
 
 public class Item {
-  private int  itemid = 0;
-  private int  price = 1000;
-  private String name = "虎の穴入門";
+  private int  itemid,price;
+  private String name;
 
-  public void setname(String name){ //privateの変数へ値をセットするためのメソッド（セッター）
-    this.name = name; //this.nameは自分のクラスのnameを表す。ただのnameは引数のname。
+  public void setname(String name){
+    this.name = name;
   }
-  public String getname(){ //privateの変数の値を取得するためのメソッド（ゲッター）
+  public String getname(){
     return this.name;
   }
 
-  public void setitemid(int itemid){ //privateの変数へ値をセットするためのメソッド（セッター）
-    this.itemid = itemid; //this.nameは自分のクラスのnameを表す。ただのnameは引数のname。
+  public void setitemid(int itemid){
+    this.itemid = itemid;
   }
-  public int  getitemid(){ //privateの変数の値を取得するためのメソッド（ゲッター）
+  public int  getitemid(){
     return this.itemid;
   }
 
-  public void setprice(int price){ //privateの変数へ値をセットするためのメソッド（セッター）
-    this.price = price; //this.nameは自分のクラスのnameを表す。ただのnameは引数のname。
+  public void setprice(int price){
+    this.price = price;
   }
-  public int getprice(){ //privateの変数の値を取得するためのメソッド（ゲッター）
+  public int getprice(){
     return this.price;
   }
 }

@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import jp.co.systena.tigerscave.springtest.Item;
 import jp.co.systena.tigerscave.springtest.ListForm;
 import jp.co.systena.tigerscave.springtest.ListService;
@@ -23,10 +22,6 @@ public class ListController {
   String name;
   @RequestMapping("/Show") // URLとのマッピング
   public String show(Model model) {
-    /*
-    ListService listservice = new ListService();
-    model.addAttribute("itemlist", listservice.getItemList());
-    */
     ListService listservice = new ListService();
     Item item = new Item();
     item = listservice.getItemList();
@@ -39,7 +34,7 @@ public class ListController {
   }
 
   @RequestMapping(value = {"/Order"}, method = {RequestMethod.POST})
-  public ModelAndView order(Model model,
+  public String order(Model model,
           @ModelAttribute ListForm form) {
 
       // セッションへ保存
@@ -48,12 +43,12 @@ public class ListController {
       // Cartにセッションから取り出して保存
       Order order = new Order(form.getitemid(),form.getnum());
       Cart cart = new Cart();
-      cart.ordarList.add(order);
+      //cart.ordarList.add(order);
 
       // 注文を画面上に表示
 
       // 商品
-      model.addAttribute("orderitem", form.getitem());
+      model.addAttribute("orderitem", form.getname());
 
       // 個数
       model.addAttribute("ordernum", form.getnum());
@@ -62,7 +57,7 @@ public class ListController {
       int amount = form.getnum() * form.getprice();
       model.addAttribute("amount", amount);
 
-      return new ModelAndView("redirect/");
+      return "ListView";
   }
 
 }

@@ -14,17 +14,16 @@ td {padding:5px;color:black;background:#f0f0f0;}
 <form method="Post" action="/Order" th:object="${ListController}">
 <div class="item">
 <p>商品ID：<br>
-<h1 th:text="${itemid}"></h1>
+<p th:text="${itemid}"></p>
 </div>
 
 <div class="item">
-<p>価格：<br>
-<h1 th:text="${price}"></h1>
+<tr><p>価格：</p><p th:text="${price}"></p></tr>
 </div>
 
 <div class="item">
 <p>商品名：<br>
-<h1 th:text="${name}"></h1>
+<p th:text="${name}"></p>
 </div>
 
 <div class="item">
@@ -44,9 +43,9 @@ td {padding:5px;color:black;background:#f0f0f0;}
 </form>
 <table>
 <tr><th>商品名</th><th>個数</th><th>合計金額</th></tr>
-<h1 th:text="${orderitem}"></h1>
-<h1 th:text="${ordernum}"></h1>
-<h1 th:text="${amount}"></h1>
+<td th:text="${orderitem}"></td>
+<td th:text="${ordernum}"></td>
+<td th:text="${amount}"></td>
 </table>
 </body>
 </html>

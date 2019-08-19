@@ -4,24 +4,27 @@ public class Item {
   private int  itemid,price;
   private String name;
 
-  public void setname(String name){
+  public void setName(String name){
     this.name = name;
   }
-  public String getname(){
+
+  public String getName(){
     return this.name;
   }
 
-  public void setitemid(int itemid){
+  public void setItemid(int itemid){
     this.itemid = itemid;
   }
-  public int  getitemid(){
+
+  public int  getItemid(){
     return this.itemid;
   }
 
-  public void setprice(int price){
+  public void setPrice(int price){
     this.price = price;
   }
-  public int getprice(){
+
+  public int getPrice(){
     return this.price;
   }
 }

@@ -1,43 +1,19 @@
 package jp.co.systena.tigerscave.springtest;
 
 public class ListForm{
-  private Item  item;
-  private int  num,price,itemid;
-  private String name;
+  private int  num,itemid;
 
-  public void setitem(Item item){
-    this.item = item;
-  }
-  public Item getitem(){
-    return this.item;
-  }
-
-  public void setnum(int num){
+  public void setNum(int num){
     this.num = num;
   }
-  public int  getnum(){
+  public int  getNum(){
     return this.num;
   }
 
-  public void setprice(int price){
-    this.price = price;
-  }
-  public int  getprice(){
-    return this.price;
-  }
-
-  public void setitemid(int itemid){
+  public void setItemid(int itemid){
     this.itemid = itemid;
   }
-  public int  getitemid(){
+  public int  getItemid(){
     return this.itemid;
   }
-
-  public void setname(String name){
-    this.name = name;
-  }
-  public String  getname(){
-    return this.name;
-  }
-
 }

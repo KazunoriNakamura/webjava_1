@@ -100,4 +100,26 @@ public class ListController {
     return new ModelAndView("redirect:/Show");
 
   }
+
+  @RequestMapping(value = {"/Del"}, method = {RequestMethod.POST})
+  public ModelAndView  cancel(ModelAndView mav,
+          BindingResult bindingResult,
+          @Valid ListForm form) {
+
+    Cart cart = (Cart) session.getAttribute("cart");
+    if (cart == null) {
+      cart = new Cart();
+      session.setAttribute("cart", cart);
+    }
+
+    Order order = new Order();
+    order.setItemid(form.getItemid());
+    order.setNum(form.getNum());
+    cart.cancel(0);
+
+    // セッションへ保存
+    session.setAttribute("cart", cart);
+
+    return new ModelAndView("redirect:/Show");
+  }
 }

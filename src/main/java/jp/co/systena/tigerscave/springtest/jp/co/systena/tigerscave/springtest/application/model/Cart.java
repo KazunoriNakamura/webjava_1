@@ -1,9 +1,7 @@
 package jp.co.systena.tigerscave.springtest.jp.co.systena.tigerscave.springtest.application.model;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Cart {
   public List<Order> orderList = new ArrayList<Order>();
@@ -13,18 +11,32 @@ public class Cart {
   }
 
   public void add(Order order) {
-    orderList.add(order);
-    Map<Integer, Order> map = new LinkedHashMap<Integer, Order>();
-    map.put(order.getItemid(), order);
+    int orderid,num;
+    boolean idflg = false;
+    int index= 0;
+    Order temporder;
+    orderid = order.getItemid();
+
     for (Order o : orderList) {
-        if (!map.containsKey(o.getItemid())) {
-          orderList.add(order);
+      if (o.getItemid() == orderid) {
+          idflg= true;
           break;
-        }
-        else {
-          int num = map.get(o.getItemid()).getNum();
-          map.get(o.getItemid()).setNum(num + o.getNum());
-        }
+      }
+      index=+1;
     }
+    if (idflg) {
+      temporder = orderList.get(index);
+      num = temporder.getNum() + order.getNum();
+      temporder.setNum(num);
+      orderList.set(index, temporder);
+    }
+    else {
+      orderList.add(order);
+    }
+  }
+
+  public void cancel(int index) {
+    // orderからはindexだけ取得できればよい
+    orderList.remove(index);
   }
 }
